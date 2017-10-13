@@ -24,8 +24,7 @@ struct Question{
     }
 }
 
-class ViewController: UIViewController {
-    
+class ViewController: UIViewController, SatDelegate {
     var choosen: [String] = []
     var i: Int = 0
     
@@ -40,6 +39,12 @@ class ViewController: UIViewController {
         else{
             performSegue(withIdentifier: "mainSegue", sender: self)
         }
+    }
+    
+    
+    func ReturnTest(_ choosen: [String], _ i: Int) {
+        self.choosen = choosen
+        self.i = i
     }
     
     var Q_test: [Question] = [Question(quest: "Who is Stronger?", opts: ["Batman", "Superman", "Wonder Woman"] , ans:  "Superman"), Question(quest: "Who made Python? ", opts: ["Rossum", "Linus", "Gabe"], ans: "Rossum"), Question(quest: "God of Thunder?", opts: ["Zeus", "Jupyter", "Osiris"], ans: "Zeus")]

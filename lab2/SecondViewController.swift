@@ -10,6 +10,12 @@ import UIKit
 
 class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    weak var delegate: SatDelegate?
+    
+    func callDelegate(){
+        delegate?.ReturnTest([], 0)
+    }
+    
     var choosen_answers: [String]!
     var testItself: [Question]!
     
@@ -57,9 +63,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "backSegue" {
-            let firstViewController = segue.destination as! ViewController
-            firstViewController.choosen = []
-            firstViewController.i = 0
+            callDelegate()
         }
     }
     
